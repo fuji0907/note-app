@@ -1,7 +1,14 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from 'react'
 import "./Sidebar.css"
 
-function Sidebar({onAddNote,notes}) {
+function Sidebar({
+  onAddNote,
+  notes,
+  onDeleteNote,
+  setActiveNote
+}) {
   return (
     <div className='app-sidebar'>
       <div className="app-sidebar-header">
@@ -10,10 +17,13 @@ function Sidebar({onAddNote,notes}) {
       </div>
       <div className="app-sidebar-notes">
         {notes.map((note) => (
-          <div className="app-sidebar-note">
+          <div className={'app-sidebar-note ${note.id === activeNote && "active"}'} 
+          key={note.id} 
+          onClick={() => setActiveNote(note.id)}
+          >
           <div className="sidebar-note-title">
             <strong>{note.title}</strong>
-            <button>削除</button>
+            <button onClick={() => onDeleteNote(note.id)}>削除</button>
           </div>
           <p>{note.content}</p>
           <small>{new Date(note.modDate).toLocaleDateString("ja-JP",{

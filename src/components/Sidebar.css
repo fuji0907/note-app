@@ -1,7 +1,7 @@
 button{
     background: none;
     border: none;
-    color: aqua;
+    color: rgb(34, 141, 157);
     margin: 0;
     padding: 0;
     font-size: 16px;
@@ -45,10 +45,13 @@ button{
 }
 
 .app-sidebar-note small{
-    color: azure;
+    color: rgb(98, 102, 102);
 }
 
 .app-sidebar-note:hover{
     background-color: #f1f0f0;
 }
 
+.app-sidebar-note.active{
+    background-color: #f1f0f0;
+}
